@@ -6,11 +6,13 @@ metadata:
 spec:
   replicas: 2
   template:
+    metadata:
+      labels:
+        self-hosted: "true"
+        kubernetes: "true"
+        gataria: "true"
     spec:
-      organization: dutrafernando
+      repository: f3rnandojr/gataria-backend-catalog
       githubAPICredentialsFrom:
         secretRef:
           name: controller-manager
-      labels:
-        - kubernetes
-        - gataria
