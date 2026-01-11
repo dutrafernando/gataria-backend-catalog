@@ -12,7 +12,7 @@ spec:
         kubernetes: "true"
         gataria: "true"
     spec:
-      repository: f3rnandojr/gataria-backend-catalog
+      organization: dutrafernando
       githubAPICredentialsFrom:
         secretRef:
           name: controller-manager
