@@ -4,7 +4,7 @@ metadata:
   name: gataria-runners-gh-actions
   namespace: github-actions
 spec:
-  replicas: 2
+  replicas: 3
   template:
     metadata:
       labels:
@@ -13,6 +13,5 @@ spec:
         gataria: "true"
     spec:
       organization: dutrafernando
-      githubAPICredentialsFrom:
-        secretRef:
-          name: controller-manager
+      labels:
+        - self-hosted
