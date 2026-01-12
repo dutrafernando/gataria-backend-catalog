@@ -4,14 +4,8 @@ metadata:
   name: gataria-runners-gh-actions
   namespace: github-actions
 spec:
-  replicas: 3
+  replicas: 2
   template:
-    metadata:
-      labels:
-        self-hosted: "true"
-        kubernetes: "true"
-        gataria: "true"
     spec:
       organization: dutrafernando
-      labels:
-        - self-hosted
+
