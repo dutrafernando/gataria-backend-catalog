@@ -53,10 +53,11 @@ spec:
           - name: MONGODATABASE
             value: {{ .Values.env.mongo.database | quote }}
           # {{- with .Values.livenessProbe }}
-          # livenessProbe:
-          #   {{- toYaml . | nindent 12 }}
-          # {{- end }}
-          # {{- with .Values.readinessProbe }}
+          
+          livenessProbe:
+            httpGet: 
+              path: /catalog/healthcheck
+              port: http
           # readinessProbe:
           #   {{- toYaml . | nindent 12 }}
           # {{- end }}
