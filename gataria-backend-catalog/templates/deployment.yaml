@@ -58,6 +58,9 @@ spec:
             httpGet: 
               path: /catalog/healthcheck
               port: http
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            failureThreshold: 3
           # readinessProbe:
           #   {{- toYaml . | nindent 12 }}
           # {{- end }}
