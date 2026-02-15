@@ -16,9 +16,9 @@ jobs:
     - name: Docker login
       run: docker login -u ${{ vars.DOCKER_LOGIN }} -p ${{ secrets.DOCKER_PASS }}
     - name: Docker build
-      run: docker build -t fernandindtjr/gataria-backend-images:dev$GITHUB_SHA . 
+      run: docker build -t fernandindtjr/gataria-backend-catalog:dev$GITHUB_SHA . 
     - name: docker push
-      run: docker push fernandindtjr/gataria-backend-images:dev$GITHUB_SHA
+      run: docker push fernandindtjr/gataria-backend-catalog:dev$GITHUB_SHA
   test-dev:
     name: Test dev
     if: contains (github.ref, 'dev')
@@ -51,4 +51,4 @@ jobs:
     - name: helm update repo
       run: helm repo update
     - name: Deploy prod
-      run: helm upgrade gataria-frontend gataria-charts/gataria-frontend -n dev --set "image.tag=dev$GITHUB_SHA" --set "ingress.hosts[0].hosts=dev.gataria.example" --set "ingress.hosts[0].paths[0].path=/catalog" --set "ingress.hosts[0|.paths[0].pathType=Prefix" || helm install gataria-frontend gataria-charts/gataria-frontend -n dev --set "image.tag=dev$GITHUB_SHA" --set "ingress.hosts[0].hosts=gataria.example" --set "ingress.hosts[0].paths[0].path=/catalog" --set "ingress.hosts[0|.paths[0].pathType=Prefix" 
+      run: helm upgrade gataria-backend-catalog gataria-charts/gataria-backend-catalog -n dev --set "image.tag=dev$GITHUB_SHA" --set "ingress.hosts[0].hosts=dev.gataria.example" --set "ingress.hosts[0].paths[0].path=/catalog" --set "ingress.hosts[0|.paths[0].pathType=Prefix" || helm install gataria-frontend gataria-charts/gataria-frontend -n dev --set "image.tag=dev$GITHUB_SHA" --set "ingress.hosts[0].hosts=gataria.example" --set "ingress.hosts[0].paths[0].path=/catalog" --set "ingress.hosts[0|.paths[0].pathType=Prefix" 
