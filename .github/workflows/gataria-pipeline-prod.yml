@@ -33,7 +33,7 @@ jobs:
     - name: Install dependencies
       run: npm ci
     - name: Run test
-      run: npm test
+      run: MONGO_DATABASE=prod npm test
       
   deploy-prod:
     name: Deploy prod
@@ -51,4 +51,4 @@ jobs:
     - name: helm update repo
       run: helm repo update
     - name: Deploy prod
-      run: helm upgrade gataria-backend-images gataria-charts/gataria-backend-images -n prod --set "image.tag=prod$GITHUB_SHA" --set "ingress.hosts[0].hosts=gataria.example" --set "ingress.hosts[0].paths[0].path=/catalog" --set "ingress.hosts[0].paths[0].pathType=Prefix" --set "autoscaling.enabled=true" || helm install gataria-frontend gataria-charts/gataria-frontend -n prod --set "image.tag=prod$GITHUB_SHA" --set "ingress.hosts[0].hosts=gataria.example" --set "ingress.hosts[0].paths[0].path=/catalog" --set "ingress.hosts[0].paths[0].pathType=Prefix" --set "autoscaling.enabled=true"
+      run: helm upgrade gataria-backend-catalog gataria-charts/gataria-backend-catalog -n prod --set "image.tag=prod$GITHUB_SHA" --set "ingress.hosts[0].hosts=gataria.example" --set "ingress.hosts[0].paths[0].path=/catalog" --set "ingress.hosts[0].paths[0].pathType=Prefix" --set "autoscaling.enabled=true" || helm install gataria-frontend gataria-charts/gataria-frontend -n prod --set "image.tag=prod$GITHUB_SHA" --set "ingress.hosts[0].hosts=gataria.example" --set "ingress.hosts[0].paths[0].path=/catalog" --set "ingress.hosts[0].paths[0].pathType=Prefix" --set "autoscaling.enabled=true"
