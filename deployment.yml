@@ -22,5 +22,5 @@ spec:
           env:
             - name: MONGO_URL
               value: "mongodb+srv://admin:admin@mongodb.k8ovxdo.mongodb.net/?appName=mongodb"
-            - name: MONGODATABASE
+            - name: MONGO_DATABASE
               value: "dev"
