@@ -14,7 +14,7 @@ image:
   tag: "dev"
 
 secrets:
-  mongoUrl: mongodb+srv://admin:admin@mongodb.k8ovxdo.mongodb.net/?appName=mongodb
+  mongoUrl: mongodb+srv://admin:admin@mongodb.k8ovxdo.mongodb.net/dev?appName=mongodb
 
 env:
   mongo:
