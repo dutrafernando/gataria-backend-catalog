@@ -25,6 +25,7 @@ class database {
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
+        dbName: envs.mongoDatabase,
       }
     );
 

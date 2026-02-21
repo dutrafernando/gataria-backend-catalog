@@ -1,2 +1,2 @@
-export const mongoURL = "mongodb+srv://admin:admin@mongodb.k8ovxdo.mongodb.net/?appName=mongodb";
-export const mongoDatabase = "dev";
+export const mongoURL = process.env.MONGO_URL ?? "mongodb+srv://admin:admin@mongodb.k8ovxdo.mongodb.net/";
+export const mongoDatabase = process.env.MONGO_DATABASE ?? "dev";

@@ -50,7 +50,7 @@ spec:
               secretKeyRef:
                 name: {{ include "gataria-backend-catalog.fullname" . }}-mongo
                 key: mongo-url
-          - name: MONGODATABASE
+          - name: MONGO_DATABASE
             value: {{ .Values.env.mongo.database | quote }}
           # {{- with .Values.livenessProbe }}
           
